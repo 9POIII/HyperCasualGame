@@ -10,6 +10,13 @@ namespace Resources.Scripts.Controll
         
         private Vector3 sideDirection;
         private float playerSpeed = 0;
+        
+        [SerializeField] private float T1;
+        [SerializeField] private float T2;
+        private Camera mainCamera;
+
+        public float t1 => T1;
+        public float t2 => T2;
 
         public float PlayerSpeed
         {
@@ -53,6 +60,9 @@ namespace Resources.Scripts.Controll
 
         private void MoveSide(Vector3 sideDirection)
         {
+            //transform.Translate(Vector3.Lerp(transform.position, sideDirection, t1 * sideSpeed));
+            //transform.Translate(Vector3.Lerp(Vector3.zero, new Vector3(0f, 0f, sideDirection.z), t1));
+            //Debug.Log(Vector3.Lerp(Vector3.zero, new Vector3(0f, 0f, sideDirection.z), t1));
             transform.Translate(new Vector3(0f, 0f, sideDirection.z) * sideSpeed);
         }
     }

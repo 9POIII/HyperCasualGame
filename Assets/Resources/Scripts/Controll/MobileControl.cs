@@ -19,6 +19,7 @@ namespace Resources.Scripts.Controll
                 if (Input.touchCount > 0)
                 {
                     StartMoving();
+                    FovController.Instance.AddFov();
 
                     Touch screenTouch = Input.GetTouch(0);
                     if (screenTouch.phase == TouchPhase.Moved)
@@ -27,7 +28,10 @@ namespace Resources.Scripts.Controll
                     }
                 }
                 else
+                {
                     EndMoving();
+                    FovController.Instance.MinusFov();
+                }
             }
             else
             {
